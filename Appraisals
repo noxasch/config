@@ -34,6 +34,7 @@ appraise 'rails-6.1' do
   gem 'rails', '~> 6.1.0'
   gem 'rspec-rails', '~> 5.0'
   gem 'sqlite3', '~> 1', platform: :ruby
+  gem 'benchmark'
 end
 
 # Rails 7.0 require Ruby > 2.7
@@ -85,6 +86,19 @@ if min_ruby_version.call('3.2.0')
     gem 'bootsnap', '>= 1.16.0'
     gem 'kamal', '~> 2.7.0'
     gem 'rails', '~> 8.0.0'
+    gem 'rspec-rails', '~> 8.0'
+    gem 'psych', '>= 4'
+    gem 'sqlite3', '>= 2.1', platform: :ruby
+  end
+end
+
+# Rails 8.1 requires Ruby > 3.3
+if min_ruby_version.call('3.3.0')
+  appraise 'rails-8.1' do
+    gem 'activerecord-jdbcsqlite3-adapter', '~> 71.0', platform: :jruby
+    gem 'bootsnap', '>= 1.16.0'
+    gem 'kamal', '~> 2.7.0'
+    gem 'rails', '~> 8.1.0'
     gem 'rspec-rails', '~> 8.0'
     gem 'psych', '>= 4'
     gem 'sqlite3', '>= 2.1', platform: :ruby
